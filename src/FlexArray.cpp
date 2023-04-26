@@ -14,7 +14,7 @@ FlexArray<T, sizeFakt, initialSize>::FlexArray(T defaultV)
 template<class T, unsigned int sizeFakt, unsigned int initialSize>
 FlexArray<T, sizeFakt, initialSize>::~FlexArray()
 {
-    delete data;
+    delete[] data;
 }
 
 template<class T, unsigned int sizeFakt, unsigned int initialSize>
@@ -50,9 +50,8 @@ void FlexArray<T, sizeFakt, initialSize>::enlarge()
 
 
     //todo: check which one of this cause a memory leak, if any
-    data = nullptr;
-    data = &*enlargedArray;
-
+    //data = nullptr;
+    data = enlargedArray;
     enlargedArray = nullptr;
     delete[] enlargedArray;
 
