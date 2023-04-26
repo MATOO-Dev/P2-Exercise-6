@@ -48,9 +48,8 @@ void FlexArray<T, sizeFakt, initialSize>::enlarge()
     for(int i = 0; i < size; i++)
         enlargedArray[i] = data[i];
 
-
-    //theres a memory leak here somewhere, but i dont know where or why
-    data = nullptr;
+    //switch arrays and free unused memory
+    delete data;
     data = enlargedArray;
     enlargedArray = nullptr;
     delete[] enlargedArray;
