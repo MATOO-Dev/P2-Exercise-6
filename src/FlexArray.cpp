@@ -3,8 +3,8 @@
 template<class T, unsigned int sizeFakt, unsigned int initialSize>
 FlexArray<T, sizeFakt, initialSize>::FlexArray(T defaultV)
 {
-    data = new T[initialSize];
     size = initialSize;
+    data = new T[size];
     defaultValue = defaultV;
 
     for(int i = 0; i < size; i++)
@@ -49,8 +49,8 @@ void FlexArray<T, sizeFakt, initialSize>::enlarge()
         enlargedArray[i] = data[i];
 
 
-    //todo: check which one of this cause a memory leak, if any
-    //data = nullptr;
+    //theres a memory leak here somewhere, but i dont know where or why
+    data = nullptr;
     data = enlargedArray;
     enlargedArray = nullptr;
     delete[] enlargedArray;
