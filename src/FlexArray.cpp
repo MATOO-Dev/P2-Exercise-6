@@ -41,8 +41,9 @@ template<class T, unsigned int sizeFakt, unsigned int initialSize>
 void FlexArray<T, sizeFakt, initialSize>::enlarge()
 {
     T* enlargedArray = new T[size * sizeFakt];
-    
-    for(int i = 0; i < size; i++)
+
+
+    for(int i = 0; i < size * sizeFakt; i++)
         enlargedArray[i] = defaultValue;
     
     for(int i = 0; i < size; i++)
